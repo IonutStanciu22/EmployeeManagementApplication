@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add New Employee</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/add-employee.css}" />
+</head>
+<body>
+<h1>Add New Employee</h1>
+<form th:action="@{/add}" th:object="${employee}" method="post">
+  <label for="firstName">First Name:</label>
+  <input type="text" id="firstName" name="firstName" th:value="*{firstName}" required /><br>
+
+  <label for="lastName">Last Name:</label>
+  <input type="text" id="lastName" name="lastName" th:value="*{lastName}" required /><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" th:value="*{email}" required /><br>
+
+  <label for="department">Department:</label>
+  <input type="text" id="department" name="department" th:value="*{department}" required /><br>
+
+  <button type="submit">Submit</button> <br>
+</form>
+<a href="/">Back to list</a>
+<footer>
+  <p>2024 Employee Management System</p>
+</footer>
+</body>
+</html>
