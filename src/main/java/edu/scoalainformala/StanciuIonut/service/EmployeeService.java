@@ -16,25 +16,19 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    // Retrieve all employees from the database
-    public List<Employee> findAll() {
-        return employeeRepository.findAll();
+    public List<Employee> searchByFirstName(String firstName) {
+        return employeeRepository.findByFirstNameContainingIgnoreCase(firstName);
     }
 
-    // Find an employee by ID
-    public Optional<Employee> findById(Long id) {
-        return employeeRepository.findById(id);
+    public List<Employee> searchByLastName(String lastName) {
+        return employeeRepository.findByLastNameContainingIgnoreCase(lastName);
     }
 
-    // Save or update an employee
-    @Transactional
-    public Employee save(Employee employee) {
-        return employeeRepository.save(employee);
+    public List<Employee> searchByEmail(String email) {
+        return employeeRepository.findByEmailContainingIgnoreCase(email);
     }
 
-    // Delete an employee
-    @Transactional
-    public void delete(Employee employee) {
-        employeeRepository.delete(employee);
+    public List<Employee> searchByDepartment(String department) {
+        return employeeRepository.findByDepartmentContainingIgnoreCase(department);
     }
 }

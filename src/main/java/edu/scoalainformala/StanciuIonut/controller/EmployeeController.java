@@ -1,5 +1,6 @@
 package edu.scoalainformala.StanciuIonut.controller;
 
+import edu.scoalainformala.StanciuIonut.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import edu.scoalainformala.StanciuIonut.model.Employee;
 import edu.scoalainformala.StanciuIonut.repository.EmployeeRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class EmployeeController {
 
+    @Autowired
+    private EmployeeService employeeService;
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -65,5 +71,33 @@ public class EmployeeController {
         return "redirect:/"; // Sau redirecționează unde consideri necesar
     }
 
+
+
+    @GetMapping("/search")
+    public String search(@RequestParam String searchBy, @RequestParam String searchTerm, Model model) {
+        List<Employee> employees = new ArrayList<>();
+        switch (searchBy) {
+            case "firstName":
+                employees = employeeService.searchByFirstName(searchTerm);
+                break;
+            case "lastName":
+                employees = employeeService.searchByLastName(searchTerm);
+                break;
+            case "email":
+                employees = employeeService.searchByEmail(searchTerm);
+                break;
+            case "department":
+                employees = employeeService.searchByDepartment(searchTerm);
+                break;
+        }
+        if (employees.isEmpty()) {
+            model.addAttribute("noResults", "No results found for:: " + searchTerm);
+        } else {
+            model.addAttribute("employees", employees);
+        }
+        return "index"; // Înapoi la pagina principală cu rezultatele căutării sau mesajul de eroare
     }
+
+
+}
 

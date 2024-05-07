@@ -10,15 +10,29 @@
 </head>
 <body>
 <header>
-  <h1>Employee Management System</h1>
+  <h1><a href="/" style="text-decoration: none; color: white;">Employee Management System</a></h1>
 </header>
 
 <div class="container">
   <div class="actions">
     <a href="/add" class="button">Add New Employee</a>
+    <form action="/search" method="get">
+      <label for="searchBy">Search by:</label>
+      <select id="searchBy" name="searchBy">
+        <option value="firstName">First Name</option>
+        <option value="lastName">Last Name</option>
+        <option value="email">Email</option>
+        <option value="department">Department</option>
+      </select>
+      <input type="text" id="searchTerm" name="searchTerm" required>
+      <button type="submit">Search</button>
+    </form>
   </div>
 
-  <table>
+  <!-- Aici adăugăm mesajul de "nu au fost găsite rezultate" -->
+  <div th:if="${noResults}" class="alert alert-warning" th:text="${noResults}"></div>
+
+  <table th:if="${not #lists.isEmpty(employees)}">
     <thead>
     <tr>
       <th>ID</th>
@@ -41,12 +55,12 @@
         <form th:action="@{/delete/{id}(id=${employee.id})}" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');">
           <button type="submit" class="button button-danger">Delete</button>
         </form>
-
       </td>
     </tr>
     </tbody>
   </table>
 </div>
+
 
 <footer>
   <p>2024 Employee Management System</p>
