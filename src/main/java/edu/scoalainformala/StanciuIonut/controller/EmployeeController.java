@@ -91,7 +91,7 @@ public class EmployeeController {
                 break;
         }
         if (employees.isEmpty()) {
-            model.addAttribute("noResults", "No results found for:: " + searchTerm);
+            model.addAttribute("noResults", "No results found for: " + searchTerm);
         } else {
             model.addAttribute("employees", employees);
         }
