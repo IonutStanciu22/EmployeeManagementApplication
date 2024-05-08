@@ -3,6 +3,7 @@
 <head>
   <title>Edit Employee</title>
   <link rel="stylesheet" type="text/css" th:href="@{/css/edit-employee.css}" />
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <h1>Edit Employee</h1>
@@ -22,11 +23,29 @@
   <label for="dateOfBirth">Date of Birth:</label>
   <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control" required />
 
-  <button type="submit">Update</button><br>
+  <button type="submit" onclick="checkAge(event)">Update Employee</button>
 </form>
-<a href="/">Back to list</a>
-<footer>
-  <p>2024 Employee Management System</p>
-</footer>
+<script>
+  function checkAge(event) {
+    event.preventDefault();
+    event.stopPropagation();
+
+    var dateOfBirth = document.getElementById('dateOfBirth').value;
+    var today = new Date();
+
+    var age = today.getFullYear() - new Date(dateOfBirth).getFullYear();
+    var monthDiff = today.getMonth() - new Date(dateOfBirth).getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < new Date(dateOfBirth).getDate())) {
+      age--;
+    }
+
+    if (age <= 16) {
+      alert("Employee must be at least 16 years old.");
+    } else {
+      document.querySelector('form').submit();
+    }
+  }
+</script>
+<a href="/" class="btn btn-secondary">Back to List</a>
 </body>
 </html>

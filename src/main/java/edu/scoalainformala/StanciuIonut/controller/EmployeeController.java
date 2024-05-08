@@ -61,6 +61,7 @@ public class EmployeeController {
         employee.setLastName(employeeDetails.getLastName());
         employee.setEmail(employeeDetails.getEmail());
         employee.setDepartment(employeeDetails.getDepartment());
+        employee.setDateOfBirth(employeeDetails.getDateOfBirth());
         employeeRepository.save(employee);
         return "redirect:/"; // Redirectioneaza la pagina principala dupa actualizare
     }

@@ -71,15 +71,6 @@ tr:nth-child(even) {
     opacity: 0.8;
 }
 
-footer {
-    background-color: #003366; /* Bleumarin */
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
 .actions {
     display: flex;
     justify-content: space-between;

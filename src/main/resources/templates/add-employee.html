@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>Add New Employee</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/add-employee.css}" />
+    <title>Add New Employee</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/add-employee.css}"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <h1>Add New Employee</h1>
+<p th:if="${errorAdd}" class="error" th:text="${errorAdd}"></p>
 <form th:action="@{/add}" th:object="${employee}" method="post">
-  <label for="firstName">First Name:</label>
-  <input type="text" id="firstName" name="firstName" th:value="*{firstName}" required /><br>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" th:value="*{firstName}" required/><br>
 
-  <label for="lastName">Last Name:</label>
-  <input type="text" id="lastName" name="lastName" th:value="*{lastName}" required /><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" th:value="*{lastName}" required/><br>
 
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" th:value="*{email}" required /><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" th:value="*{email}" required/><br>
 
-  <label for="department">Department:</label>
-  <input type="text" id="department" name="department" th:value="*{department}" required /><br>
+    <label for="department">Department:</label>
+    <input type="text" id="department" name="department" th:value="*{department}" required/><br>
 
-  <label for="dateOfBirth">Date of Birth:</label>
-  <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control" required />
+    <label for="dateOfBirth">Date of Birth:</label>
+    <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control" required/>
 
-  <button type="submit">Submit</button> <br>
+
+    <button type="submit" onclick="checkAge(event)">Add Employee</button>
 </form>
-<a href="/">Back to list</a>
-<footer>
-  <p>2024 Employee Management System</p>
-</footer>
+
+<script>
+    function checkAge(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        var dateOfBirth = document.getElementById('dateOfBirth').value; // Obține data de naștere
+        var today = new Date(); // Obține data de azi
+
+        // Calculează vârsta bazată pe diferența dintre data de azi și data de naștere
+        var age = today.getFullYear() - new Date(dateOfBirth).getFullYear();
+        var monthDiff = today.getMonth() - new Date(dateOfBirth).getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < new Date(dateOfBirth).getDate())) {
+            age--;
+        }
+
+        if (age <= 16) {
+            alert("Employee must be at least 16 years old.");
+        } else {
+            document.querySelector('form').submit();
+        }
+    }
+</script>
+<a href="/" class="btn btn-secondary">Back to List</a>
 </body>
 </html>
