@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table(name = "employees")
@@ -30,6 +33,17 @@ public class Employee {
 
     private String department;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateOfBirth;
+
+
+    public String calculateAge() {
+        if (this.dateOfBirth == null) {
+            return "Unknown";
+        }
+        Period period = Period.between(this.dateOfBirth, LocalDate.now());
+        return period.getYears() + " years, " + period.getMonths() + " months, and " + period.getDays() + " days";
+    }
+
     // Constructors, getters, and setters are managed by Lombok.
 }
-

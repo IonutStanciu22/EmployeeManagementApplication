@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 import edu.scoalainformala.StanciuIonut.model.Employee;
 import edu.scoalainformala.StanciuIonut.repository.EmployeeRepository;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class EmployeeController {
@@ -110,6 +112,26 @@ public class EmployeeController {
             model.addAttribute("employees", employees);
         }
         return "index"; // Înapoi la pagina principală cu rezultatele căutării sau mesajul de eroare
+    }
+
+    @GetMapping("/employees/searchById")
+    public String searchEmployeeById(@RequestParam("id") Long id, Model model, RedirectAttributes redirectAttributes) {
+        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        if (employeeOptional.isPresent()) {
+            Employee employee = employeeOptional.get();
+            model.addAttribute("employee", employee);
+            return "details-employee";  // Redirecționează către pagina de detalii a angajatului
+        } else {
+            redirectAttributes.addFlashAttribute("error", "No employee found with ID " + id);
+            return "redirect:/";  // Redirecționează înapoi la pagina principală dacă ID-ul nu este găsit
+        }
+    }
+    @GetMapping("/employees/details/{id}")
+    public String showEmployeeDetails(@PathVariable("id") Long id, Model model) {
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid employee ID: " + id));
+        model.addAttribute("employee", employee);
+        return "details-employee"; // Numele template-ului Thymeleaf pentru detalii
     }
 
 

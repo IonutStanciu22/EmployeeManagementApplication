@@ -80,3 +80,24 @@ footer {
     bottom: 0;
     width: 100%;
 }
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-forms {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.add-employee-form {
+    margin-right: auto;  /* Împinge toate celelalte elemente spre dreapta */
+}
+
+.search-by-id-form, .search-by-form {
+    margin-left: 20px;
+}
+

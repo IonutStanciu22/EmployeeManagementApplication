@@ -19,6 +19,9 @@
   <label for="department">Department:</label>
   <input type="text" id="department" name="department" th:value="*{department}" required /><br>
 
+  <label for="dateOfBirth">Date of Birth:</label>
+  <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control" required />
+
   <button type="submit">Update</button><br>
 </form>
 <a href="/">Back to list</a>
