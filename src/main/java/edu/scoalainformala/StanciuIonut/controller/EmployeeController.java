@@ -76,6 +76,19 @@ public class EmployeeController {
     @GetMapping("/search")
     public String search(@RequestParam String searchBy, @RequestParam String searchTerm, Model model) {
         List<Employee> employees = new ArrayList<>();
+
+        // Verificare pentru condiția specifică "email" ce trebuie să conțină "@"
+        if ("email".equals(searchBy) && !searchTerm.contains("@")) {
+            model.addAttribute("noResults", "Search term for department must contain '@'.");
+            return "index";
+        }
+
+        // Verificare pentru condiția ca "firstName", "lastName", și "department" să nu conțină cifre
+        if (("firstName".equals(searchBy) || "lastName".equals(searchBy) || "department".equals(searchBy)) && !searchTerm.matches("[a-zA-Z ]+")) {
+            model.addAttribute("noResults", "Search term for " + searchBy + " must contain only letters.");
+            return "index";
+        }
+
         switch (searchBy) {
             case "firstName":
                 employees = employeeService.searchByFirstName(searchTerm);
@@ -90,6 +103,7 @@ public class EmployeeController {
                 employees = employeeService.searchByDepartment(searchTerm);
                 break;
         }
+
         if (employees.isEmpty()) {
             model.addAttribute("noResults", "No results found for: " + searchTerm);
         } else {
@@ -97,6 +111,7 @@ public class EmployeeController {
         }
         return "index"; // Înapoi la pagina principală cu rezultatele căutării sau mesajul de eroare
     }
+
 
 
 }
