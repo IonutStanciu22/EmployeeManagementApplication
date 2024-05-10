@@ -10,6 +10,7 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     // Aici poți adăuga metode de interogare personalizate, dacă este necesar
+
     List<Employee> findByFirstNameContainingIgnoreCase(String firstName);
     List<Employee> findByLastNameContainingIgnoreCase(String lastName);
     List<Employee> findByEmailContainingIgnoreCase(String email);
