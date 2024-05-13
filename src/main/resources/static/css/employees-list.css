@@ -1,0 +1,104 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9; /* Gri deschis pentru fundal */
+    color: #4a4a4a; /* Gri închis pentru text */
+}
+
+
+header, footer {
+    background-color: #003366; /* Bleumarin */
+    color: #ffffff;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.actions {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #007acc; /* Albastru cerulean */
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.button {
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    background-color: #007acc; /* Albastru cerulean */
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.button-danger {
+    padding: 6px;
+    background-color: #993333; /* Roșu vin */
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.button-danger:hover {
+    opacity: 0.8;
+}
+
+.actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-forms {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.add-employee-form {
+    margin-right: auto;  /* Împinge toate celelalte elemente spre dreapta */
+}
+
+.search-by-id-form, .search-by-form {
+    margin-left: 20px;
+}
+
+/*footer {*/
+/*    background-color: #003366; !* Bleumarin *!*/
+/*    color: #fff;*/
+/*    text-align: center;*/
+/*    padding: 10px 20px;*/
+/*    position: fixed;*/
+/*    bottom: 0;*/
+/*    width: 100%; !* Se întinde pe toată lățimea paginii *!*/
+/*}*/
+

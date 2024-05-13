@@ -7,12 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import edu.scoalainformala.StanciuIonut.model.Employee;
-import edu.scoalainformala.StanciuIonut.repository.EmployeeRepository;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class EmployeeController {
@@ -21,29 +18,35 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
 
-    // Afisarea listei angajatilor
     @GetMapping("/")
-    public String showEmployeeList(Model model) {
-        model.addAttribute("employees", employeeService.findAll());
+    public String homepage() {
+
         return "index"; // Utilizeaza index.html pentru a afisa lista
     }
 
+    // Afisarea listei angajatilor
+    @GetMapping("/employees")
+    public String showEmployeeList(Model model) {
+        model.addAttribute("employees", employeeService.findAll());
+        return "employees-list"; // Utilizeaza employees-list.html pentru a afisa lista
+    }
+
     // Afisarea formularului de adaugare angajat
-    @GetMapping("/add")
+    @GetMapping("/employees/add")
     public String showAddForm(Model model) {
         model.addAttribute("employee", new Employee());
         return "add-employee"; // Utilizeaza add-employee.html pentru formular
     }
 
     // Procesarea formularului de adaugare angajat
-    @PostMapping("/add")
+    @PostMapping("/employees/add")
     public String addEmployee(@ModelAttribute Employee employee) {
         employeeService.saveEmployee(employee);
-        return "redirect:/";  // Redirectioneaza la pagina principala dupa adaugare
+        return "redirect:/employees";  // Redirectioneaza la pagina principala dupa adaugare
     }
 
     // Afisarea formularului de editare angajat
-    @GetMapping("/edit/{id}")
+    @GetMapping("/employees/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) {
         Employee employee = employeeService.findEmployeeById(id);
         model.addAttribute("employee", employee);
@@ -51,23 +54,23 @@ public class EmployeeController {
     }
 
     // Actualizarea unui angajat
-    @PostMapping("/update/{id}")
+    @PostMapping("/employees/update/{id}")
     public String updateEmployee(@PathVariable Long id, @ModelAttribute Employee employeeDetails) {
         employeeService.updateEmployee(id, employeeDetails);
-        return "redirect:/";  // Redirecționează la pagina principală după actualizare
+        return "redirect:/employees";  // Redirecționează la pagina principală după actualizare
     }
 
 
-    @PostMapping("/delete/{id}")
+    @PostMapping("/employees/delete/{id}")
     public String deleteEmployee(@PathVariable Long id) {
         employeeService.deleteEmployee(id);
-        return "redirect:/";  // Redirecționează la pagina principală după ștergere
+        return "redirect:/employees";  // Redirecționează la pagina principală după ștergere
     }
 
 
 
 
-    @GetMapping("/search")
+    @GetMapping("/employees/search")
     public String search(@RequestParam String searchBy, @RequestParam String searchTerm, Model model) {
         List<Employee> employees = employeeService.searchEmployees(searchBy, searchTerm);
 
@@ -76,7 +79,7 @@ public class EmployeeController {
         } else {
             model.addAttribute("employees", employees);
         }
-        return "index"; // Înapoi la pagina principală cu rezultatele căutării sau mesajul de eroare
+        return "employees-list"; // Înapoi la pagina principală cu rezultatele căutării sau mesajul de eroare
     }
     @GetMapping("/employees/searchById")
     public String searchEmployeeById(@RequestParam("id") Long id, Model model, RedirectAttributes redirectAttributes) {
@@ -86,15 +89,18 @@ public class EmployeeController {
             return "details-employee";  // Redirecționează către pagina de detalii a angajatului
         } catch (IllegalArgumentException e) {
             redirectAttributes.addFlashAttribute("error", e.getMessage());
-            return "redirect:/";  // Redirecționează înapoi la pagina principală dacă ID-ul nu este găsit
+            return "redirect:/employees";  // Redirecționează înapoi la pagina principală dacă ID-ul nu este găsit
         }
     }
 
     @GetMapping("/employees/details/{id}")
     public String showEmployeeDetails(@PathVariable("id") Long id, Model model) {
         Employee employee = employeeService.findEmployeeById(id);
+        if (employee == null) {
+            model.addAttribute("errorMessage", "Employee not found");
+            return "error"; // Numele template-ului Thymeleaf pentru erori
+        }
         model.addAttribute("employee", employee);
         return "details-employee"; // Numele template-ului Thymeleaf pentru detalii
     }
 }
-

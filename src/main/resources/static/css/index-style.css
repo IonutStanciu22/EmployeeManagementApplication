@@ -1,104 +1,69 @@
-body {
-    font-family: 'Arial', sans-serif;
+
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    background: #f9f9f9; /* Gri deschis pentru fundal */
-    color: #4a4a4a; /* Gri închis pentru text */
+    overflow: hidden; /* Previne scroll-ul vertical */
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    width: 200px;
+    height: 100vh; /* Asigură că sidebar-ul ocupă întreaga înălțime */
+    position: fixed; /* Sidebar-ul este fixat pe stânga */
+    top: 0;
+    left: 0;
+    box-sizing: border-box; /* Include padding-ul și marginile în dimensiunile totale */
+    border-right: 2px solid white; /* Adaugă marginea albă la dreapta */
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    margin-left: 200px; /* Asigură că conținutul nu se suprapune cu sidebar-ul */
+    width: calc(100% - 200px); /* Ajustează lățimea conținutului */
+    height: 100vh; /* Asigură că conținutul ocupă întreaga înălțime */
+    overflow: hidden; /* Previne scroll-ul vertical */
+    display: flex;
+    flex-direction: column;
 }
 
 
-header, footer {
+.main-content {
+    flex: 1 1 auto;
+    overflow: hidden;
+}
+
+.carousel, .carousel-inner, .carousel-item {
+    height: 100%; /* Asigură că caruselul și elementele sale ocupă întreaga înălțime */
+    width: 100%; /* Asigură că caruselul și elementele sale ocupă întreaga lățime */
+}
+
+.carousel-item img {
+    width: 100%; /* Asigură că imaginea ocupă întreaga lățime */
+    height: 100%; /* Asigură că imaginea ocupă întreaga înălțime */
+    object-fit: cover; /* Asigură că imaginile se încadrează perfect */
+}
+
+.header{
     background-color: #003366; /* Bleumarin */
     color: #ffffff;
     padding: 10px 20px;
     text-align: center;
-}
-
-h1 {
     margin: 0;
+    flex: 0 0 auto;
+    border-bottom: 2px solid white; /* Adaugă marginea albă jos */
+    border-right: 2px solid white; /* Adaugă marginea albă la dreapta */
+    /*border-left: 2px solid white; !* Adaugă marginea albă la dreapta *!*/
 }
-
-.container {
-    width: 90%;
-    margin: 20px auto;
-}
-
-.actions {
-    margin-bottom: 20px;
-}
-
-table {
-    width: 100%;
-    margin-bottom: 20px;
-    border-collapse: collapse;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #007acc; /* Albastru cerulean */
-    color: #fff;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-.button {
-    display: inline-block;
-    padding: 5px 10px;
-    color: white;
-    background-color: #007acc; /* Albastru cerulean */
-    text-decoration: none;
-    border-radius: 5px;
-    margin-right: 5px;
-}
-
-.button-danger {
-    padding: 6px;
-    background-color: #993333; /* Roșu vin */
-}
-
-.button:hover {
-    opacity: 0.8;
-}
-
-.button-danger:hover {
-    opacity: 0.8;
-}
-
-.actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.search-forms {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.add-employee-form {
-    margin-right: auto;  /* Împinge toate celelalte elemente spre dreapta */
-}
-
-.search-by-id-form, .search-by-form {
-    margin-left: 20px;
-}
-
-/*footer {*/
-/*    background-color: #003366; !* Bleumarin *!*/
-/*    color: #fff;*/
-/*    text-align: center;*/
-/*    padding: 10px 20px;*/
-/*    position: fixed;*/
-/*    bottom: 0;*/
-/*    width: 100%; !* Se întinde pe toată lățimea paginii *!*/
-/*}*/
-

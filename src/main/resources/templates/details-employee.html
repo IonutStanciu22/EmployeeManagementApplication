@@ -19,11 +19,11 @@
   <p><strong>Date of Birth</strong>: <span th:text="${employee.dateOfBirth}"></span></p>
   <p><strong>Age</strong>: <span th:text="${employee.calculateAge()}"></span></p>
   <!-- Alte informații despre angajat pot fi adăugate aici -->
-  <a th:href="@{'/edit/' + ${employee.id}}" class="btn btn-primary">Edit</a>
-  <form th:action="@{'/delete/' + ${employee.id}}" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');" style="display: inline;">
+  <a th:href="@{'/employees/edit/' + ${employee.id}}" class="btn btn-primary">Edit</a>
+  <form th:action="@{'/employees/delete/' + ${employee.id}}" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');" style="display: inline;">
     <button type="submit" class="btn btn-danger">Delete</button>
   </form>
-  <a href="/" class="btn btn-secondary">Back to List</a>
+  <a href="/employees" class="btn btn-secondary">Back to List</a>
 </div>
 </body>
 </html>

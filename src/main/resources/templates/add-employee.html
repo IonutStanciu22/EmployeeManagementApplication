@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Add New Employee</h1>
-<form th:action="@{/add}" th:object="${employee}" method="post">
+<form th:action="@{/employees/add}" th:object="${employee}" method="post">
     <label for="firstName">First Name:</label>
     <input type="text" id="firstName" name="firstName" th:value="*{firstName}" required/><br>
 
@@ -18,7 +18,24 @@
     <input type="email" id="email" name="email" th:value="*{email}" required/><br>
 
     <label for="department">Department:</label>
-    <input type="text" id="department" name="department" th:value="*{department}" required/><br>
+    <select id="department" name="department" th:field="*{department}" required>
+        <option value="">Select Department</option>
+        <option value="Sales and Marketing">Sales and Marketing</option>
+        <option value="Human Resources (HR)">Human Resources (HR)</option>
+        <option value="Finance and Accounting">Finance and Accounting</option>
+        <option value="Information Technology (IT)">Information Technology (IT)</option>
+        <option value="Operations">Operations</option>
+        <option value="Legal">Legal</option>
+        <option value="Research and Development (R&D)">Research and Development (R&D)</option>
+        <option value="Customer Relations">Customer Relations</option>
+        <option value="Procurement or Purchasing">Procurement or Purchasing</option>
+        <option value="Market Research">Market Research</option>
+        <option value="Quality Assurance">Quality Assurance</option>
+        <option value="Communication">Communication</option>
+        <option value="Organizational Development">Organizational Development</option>
+        <option value="Administrative Services">Administrative Services</option>
+        <option value="Security">Security</option>
+    </select><br>
 
     <label for="dateOfBirth">Date of Birth:</label>
     <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control" required/>
@@ -49,6 +66,6 @@
         }
     }
 </script>
-<a href="/" class="btn btn-secondary">Back to List</a>
+<a href="/employees" class="btn btn-secondary">Back to List</a>
 </body>
 </html>
