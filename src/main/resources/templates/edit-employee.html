@@ -2,47 +2,68 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Edit Employee</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/edit-employee.css}" />
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/add-edit-employee.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}" />
+
 </head>
+<header>
+  <div class="hamburger-menu">
+    <input id="menu__toggle" type="checkbox"/>
+    <label class="menu__btn" for="menu__toggle">
+      <span></span>
+    </label>
+    <ul class="menu__box">
+      <li><a class="menu__item" th:href="@{/}">Home</a></li>
+      <li><a class="menu__item" th:href="@{/employees}">Employees</a>
+      <li><a class="menu__item" th:href="@{/salaries}">Salaries</a>
+      <li><a class="menu__item" th:href="@{/reports}">Reports</a>
+    </ul>
+  </div>
+  <h1>Employee Management System</h1>
+</header>
 <body>
-<h1>Edit Employee</h1>
+<div class="detail-container">
+<h2>Edit Employee</h2>
 <form th:action="@{/employees/update/{id}(id=${employee.id})}" th:object="${employee}" method="post">
   <label for="firstName">First Name:</label>
-  <input type="text" id="firstName" name="firstName" th:value="*{firstName}" required /><br>
+  <input type="text" id="firstName" name="firstName" th:value="*{firstName}" required/><br>
 
   <label for="lastName">Last Name:</label>
-  <input type="text" id="lastName" name="lastName" th:value="*{lastName}" required /><br>
+  <input type="text" id="lastName" name="lastName" th:value="*{lastName}" required/><br>
 
   <label for="email">Email:</label>
-  <input type="email" id="email" name="email" th:value="*{email}" required /><br>
+  <input type="email" id="email" name="email" th:value="*{email}" required/><br>
 
   <label for="department">Department:</label>
-  <select id="department" name="department" th:field="*{department}" required>
-    <option value="">Select Department</option>
-    <option value="Sales and Marketing">Sales and Marketing</option>
-    <option value="Human Resources (HR)">Human Resources (HR)</option>
-    <option value="Finance and Accounting">Finance and Accounting</option>
-    <option value="Information Technology (IT)">Information Technology (IT)</option>
-    <option value="Operations">Operations</option>
-    <option value="Legal">Legal</option>
-    <option value="Research and Development (R&D)">Research and Development (R&D)</option>
-    <option value="Customer Relations">Customer Relations</option>
-    <option value="Procurement or Purchasing">Procurement or Purchasing</option>
-    <option value="Market Research">Market Research</option>
-    <option value="Quality Assurance">Quality Assurance</option>
-    <option value="Communication">Communication</option>
-    <option value="Organizational Development">Organizational Development</option>
-    <option value="Administrative Services">Administrative Services</option>
-    <option value="Security">Security</option>
+  <select id="department" name="department" th:field="*{department}" required/><br>
+  <option value="">Select Department</option>
+  <option value="">Select Department</option>
+  <option value="Sales and Marketing">Sales and Marketing</option>
+  <option value="Human Resources (HR)">Human Resources (HR)</option>
+  <option value="Finance and Accounting">Finance and Accounting</option>
+  <option value="Information Technology (IT)">Information Technology (IT)</option>
+  <option value="Operations">Operations</option>
+  <option value="Legal">Legal</option>
+  <option value="Research and Development (R&D)">Research and Development (R&D)</option>
+  <option value="Customer Relations">Customer Relations</option>
+  <option value="Purchasing">Procurement or Purchasing</option>
+  <option value="Market Research">Market Research</option>
+  <option value="Quality Assurance">Quality Assurance</option>
+  <option value="Communication">Communication</option>
+  <option value="Organizational Development">Organizational Development</option>
+  <option value="Administrative Services">Administrative Services</option>
+  <option value="Security">Security</option>
   </select><br>
 
   <label for="dateOfBirth">Date of Birth:</label>
-  <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control" required/>
+  <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" class="form-control" required/><br>
 
-
-  <button type="submit" onclick="checkAge(event)">Update Employee</button>
+  <button type="submit" onclick="checkAge(event)">Edit Employee</button>
 </form>
+
+</div>
 <script>
   function checkAge(event) {
     event.preventDefault();
@@ -64,6 +85,5 @@
     }
   }
 </script>
-<a href="/employees" class="btn btn-secondary">Back to List</a>
 </body>
 </html>

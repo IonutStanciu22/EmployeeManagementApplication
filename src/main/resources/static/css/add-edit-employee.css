@@ -1,0 +1,61 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9; /* Gri deschis pentru fundal */
+    color: #4a4a4a; /* Gri închis pentru text */
+}
+
+header {
+    background-color: #003366; /* Bleumarin */
+    color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center; /* Centrează elementele pe orizontală */
+    align-items: center; /* Centrează elementele pe verticală */
+}
+
+h1 {
+    margin: 0;
+    text-decoration: none;
+    color: white;
+
+}
+
+
+.detail-container {
+    max-width: 800px;
+    margin: 15px auto;
+    padding: 15px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.detail-title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="date"], select {
+    width: 100%;
+    padding: 6px;
+    margin: 7px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #004494;
+}

@@ -6,17 +6,22 @@ body {
     color: #4a4a4a; /* Gri închis pentru text */
 }
 
-
-header, footer {
+header {
     background-color: #003366; /* Bleumarin */
     color: #ffffff;
     padding: 10px 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center; /* Centrează elementele pe orizontală */
+    align-items: center; /* Centrează elementele pe verticală */
 }
 
 h1 {
     margin: 0;
+    text-decoration: none;
+    color: white;
+
 }
+
 
 .container {
     width: 90%;
@@ -58,17 +63,53 @@ tr:nth-child(even) {
     margin-right: 5px;
 }
 
-.button-danger {
-    padding: 6px;
-    background-color: #993333; /* Roșu vin */
+i {
+    margin-right: 5px; /* Adaugă un spațiu între iconiță și text */
 }
 
-.button:hover {
-    opacity: 0.8;
+
+/* Container pentru butoane */
+.detail-actions {
+    display: flex;
+    justify-content: flex-start; /* Aliniază butoanele la începutul containerului */
+    align-items: center;
+    gap: 10px; /* Menține un spațiu de 10px între butoane */
 }
 
-.button-danger:hover {
-    opacity: 0.8;
+/* Stiluri pentru butoanele de acțiune */
+.detail-action-btn {
+    text-decoration: none;
+    padding: 10px; /* Reducem padding-ul orizontal pentru a face butoanele mai înguste */
+    border-radius: 6px; /* Colțuri ușor rotunjite */
+    display: flex;
+    width: 30px; /* Setăm o lățime de 20px */
+    height: 30px; /* Setăm o înălțime de 20px pentru a crea butoane pătrate */
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #0056b3;
+    border: none;
+    cursor: pointer;
+}
+
+.detail-action-btn:hover {
+    background-color: #004494; /* Schimbă culoarea la hover */
+}
+
+.detail-delete-btn {
+    background-color: #dc3545; /* Fundal specific pentru butonul de ștergere */
+}
+
+.detail-delete-btn:hover {
+    background-color: #c82333; /* Schimbă culoarea la hover */
+}
+
+.detail-back-btn {
+    background-color: #6c757d; /* Fundal specific pentru butonul de revenire */
+}
+
+.detail-back-btn:hover {
+    background-color: #5a6268; /* Schimbă culoarea la hover */
 }
 
 .actions {
@@ -91,14 +132,3 @@ tr:nth-child(even) {
 .search-by-id-form, .search-by-form {
     margin-left: 20px;
 }
-
-/*footer {*/
-/*    background-color: #003366; !* Bleumarin *!*/
-/*    color: #fff;*/
-/*    text-align: center;*/
-/*    padding: 10px 20px;*/
-/*    position: fixed;*/
-/*    bottom: 0;*/
-/*    width: 100%; !* Se întinde pe toată lățimea paginii *!*/
-/*}*/
-

@@ -1,29 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-  <link rel="stylesheet" type="text/css" th:href="@{/css/details-employee.css}" />
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Employee Details</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/details-employee.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/navbar.css}"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
 </head>
+<header>
+    <div class="hamburger-menu">
+        <input id="menu__toggle" type="checkbox"/>
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+        <ul class="menu__box">
+            <li><a class="menu__item" th:href="@{/}">Home</a></li>
+            <li><a class="menu__item" th:href="@{/employees}">Employees</a>
+            <li><a class="menu__item" th:href="@{/salaries}">Salaries</a>
+            <li><a class="menu__item" th:href="@{/reports}">Reports</a>
+        </ul>
+    </div>
+    <h1>Employee Management System</h1>
+</header>
 <body>
-<h1>Employee Details</h1>
-<br>
-<div>
-  <p><strong>ID:</strong> <span th:text="${employee.id}"></span></p>
-  <p><strong>First Name:</strong> <span th:text="${employee.firstName}"></span></p>
-  <p><strong>Last Name:</strong> <span th:text="${employee.lastName}"></span></p>
-  <p><strong>Email:</strong> <span th:text="${employee.email}"></span></p>
-  <p><strong>Department:</strong> <span th:text="${employee.department}"></span></p>
-  <p><strong>Date of Birth</strong>: <span th:text="${employee.dateOfBirth}"></span></p>
-  <p><strong>Age</strong>: <span th:text="${employee.calculateAge()}"></span></p>
-  <!-- Alte informații despre angajat pot fi adăugate aici -->
-  <a th:href="@{'/employees/edit/' + ${employee.id}}" class="btn btn-primary">Edit</a>
-  <form th:action="@{'/employees/delete/' + ${employee.id}}" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');" style="display: inline;">
-    <button type="submit" class="btn btn-danger">Delete</button>
-  </form>
-  <a href="/employees" class="btn btn-secondary">Back to List</a>
-</div>
+
+
+
+<div class="detail-container">
+        <h2 class="detail-title">Employee Details:</h2>
+        <p class="detail-text"><strong>ID:</strong> <span th:text="${employee.id}"></span></p>
+        <p class="detail-text"><strong>First Name:</strong> <span th:text="${employee.firstName}"></span></p>
+        <p class="detail-text"><strong>Last Name:</strong> <span th:text="${employee.lastName}"></span></p>
+        <p class="detail-text"><strong>Email:</strong> <span th:text="${employee.email}"></span></p>
+        <p class="detail-text"><strong>Department:</strong> <span th:text="${employee.department}"></span></p>
+        <p class="detail-text"><strong>Date of Birth</strong>: <span th:text="${employee.dateOfBirth}"></span></p>
+        <p class="detail-text"><strong>Age</strong>: <span th:text="${employee.calculateAge()}"></span></p>
+        <!-- Alte informații despre angajat pot fi adăugate aici -->
+    <div class="detail-actions">
+    <a th:href="@{/employees/edit/{id}(id=${employee.id})}" class="detail-action-btn">
+        <i class="fas fa-edit"></i> Edit
+    </a>
+    <form th:action="@{/employees/delete/{id}(id=${employee.id})}" method="post" onsubmit="return confirm('Are you sure you want to delete this employee?');">
+        <button type="submit" class="detail-action-btn detail-delete-btn">
+            <i class="fas fa-trash"></i> Delete
+        </button>
+    </form>
+    <a th:href="@{/employees}" class="detail-action-btn detail-back-btn">
+        <i class="fas fa-arrow-left"></i> Back to List
+    </a>
+    </div>
+    </div>
+
 </body>
 </html>

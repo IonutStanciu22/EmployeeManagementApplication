@@ -6,29 +6,6 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-.sidebar {
-    background-color: #343a40;
-    color: white;
-    padding: 10px;
-    width: 200px;
-    height: 100vh; /* Asigură că sidebar-ul ocupă întreaga înălțime */
-    position: fixed; /* Sidebar-ul este fixat pe stânga */
-    top: 0;
-    left: 0;
-    box-sizing: border-box; /* Include padding-ul și marginile în dimensiunile totale */
-    border-right: 2px solid white; /* Adaugă marginea albă la dreapta */
-}
-
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    display: block;
-    padding: 10px 0;
-}
-
-.sidebar a:hover {
-    text-decoration: underline;
-}
 
 .content {
     margin-left: 200px; /* Asigură că conținutul nu se suprapune cu sidebar-ul */
@@ -38,6 +15,16 @@ html, body {
     display: flex;
     flex-direction: column;
 }
+
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1050; /* Asigurați-vă că este mai mare decât alte elemente pe pagina */
+    background: #fff; /* Optional: pentru vizibilitate îmbunătățită */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: pentru un efect subtil de elevație */
+    top: 0;
+}
+
 
 
 .main-content {
@@ -54,16 +41,7 @@ html, body {
     width: 100%; /* Asigură că imaginea ocupă întreaga lățime */
     height: 100%; /* Asigură că imaginea ocupă întreaga înălțime */
     object-fit: cover; /* Asigură că imaginile se încadrează perfect */
+    object-position: bottom; /* Centrează imaginea de la partea de jos */
 }
 
-.header{
-    background-color: #003366; /* Bleumarin */
-    color: #ffffff;
-    padding: 10px 20px;
-    text-align: center;
-    margin: 0;
-    flex: 0 0 auto;
-    border-bottom: 2px solid white; /* Adaugă marginea albă jos */
-    border-right: 2px solid white; /* Adaugă marginea albă la dreapta */
-    /*border-left: 2px solid white; !* Adaugă marginea albă la dreapta *!*/
-}
+

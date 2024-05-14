@@ -1,39 +1,93 @@
-form {
-    background-color: #ffffff;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 500px;
+.detail-container {
+    max-width: 800px; /* Lățimea maximă a containerului pentru o citire confortabilă */
+    margin: 20px auto; /* Centrează containerul pe pagina și adaugă spațiu deasupra și dedesubt */
+    padding: 20px; /* Spațiu în interiorul containerului */
+    background: #ffffff; /* Fundal alb pentru contrast cu textul */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Umbra subtilă pentru a adăuga adâncime */
+    border-radius: 10px; /* Colțuri rotunjite */
 }
+
+/* Stiluri pentru titluri în cadrul detaliilor */
+.detail-title {
+    font-size: 24px; /* Mărimea fontului pentru titluri */
+    color: #333; /* Culoare inchisă pentru ușurința citirii */
+    margin-bottom: 10px; /* Spațiu sub titlu */
+}
+
+/* Stiluri pentru paragrafele de detalii */
+.detail-text {
+    font-size: 16px; /* Mărimea fontului pentru textul normal */
+    color: #666; /* Culoare mai deschisă pentru text */
+    line-height: 1.5; /* Înălțimea liniei pentru o citire mai ușoară */
+    margin-bottom: 5px; /* Spațiu între paragrafe */
+}
+
+/* Container pentru butoane */
+.detail-actions {
+    display: flex; /* Setează layout-ul la flex */
+    justify-content: space-between; /* Spațiază butoanele uniform pe orizontală */
+    padding: 10px 0; /* Padding pentru a oferi spațiu în jurul butoanelor */
+}
+
+/* Stiluri pentru butoanele de acțiune, actualizare pentru flexibilitate */
+.detail-action-btn {
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 10px; /* Margine între butoane pentru a asigura spațiu */
+    border-radius: 5px;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #0056b3;
+    border: none;
+    cursor: pointer;
+}
+
+.detail-action-btn:hover {
+    background-color: #004494;
+}
+
+.detail-delete-btn {
+    background-color: #dc3545;
+}
+
+.detail-delete-btn:hover {
+    background-color: #c82333;
+}
+
+.detail-back-btn {
+    background-color: #6c757d;
+}
+
+.detail-back-btn:hover {
+    background-color: #5a6268;
+}
+header {
+    display: flex;
+    background-color: #003366; /* Bleumarin */
+    color: #ffffff;
+    padding: 10px 20px;
+    justify-content: center; /* Centrează elementele pe orizontală */
+    align-items: center; /* Centrează elementele pe verticală */
+}
+
+h1 {
+    margin: 0;
+    text-decoration: none;
+    color: white;
+
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background: #f9f9f9; /* Gri deschis pentru fundal */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    color: #4a4a4a; /* Gri închis pentru text */
 }
 
-h1 {
-    color: #003366; /* Bleumarin pentru titlu */
-    margin: 20px 0;
+i {
+    margin-right: 5px; /* Adaugă un spațiu între iconiță și text */
 }
-
-label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"], input[type="email"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px; /* Spațiu între câmpuri */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
