@@ -16,9 +16,9 @@
     </label>
     <ul class="menu__box">
       <li><a class="menu__item" th:href="@{/}">Home</a></li>
-      <li><a class="menu__item" th:href="@{/employees}">Employees</a>
-      <li><a class="menu__item" th:href="@{/salaries}">Salaries</a>
-      <li><a class="menu__item" th:href="@{/reports}">Reports</a>
+      <li><a class="menu__item" th:href="@{/employees}">Employees</a></li>
+      <li><a class="menu__item" th:href="@{/employees/salaries}">Salaries</a></li>
+      <li><a class="menu__item" th:href="@{/employees/reports}">Reports</a></li>
     </ul>
   </div>
   <h1>Employee Management System</h1>
@@ -39,13 +39,10 @@
   <label for="department">Department:</label>
   <select id="department" name="department" th:field="*{department}" required/><br>
   <option value="">Select Department</option>
-  <option value="">Select Department</option>
   <option value="Sales and Marketing">Sales and Marketing</option>
   <option value="Human Resources (HR)">Human Resources (HR)</option>
   <option value="Finance and Accounting">Finance and Accounting</option>
   <option value="Information Technology (IT)">Information Technology (IT)</option>
-  <option value="Operations">Operations</option>
-  <option value="Legal">Legal</option>
   <option value="Research and Development (R&D)">Research and Development (R&D)</option>
   <option value="Customer Relations">Customer Relations</option>
   <option value="Purchasing">Procurement or Purchasing</option>
@@ -55,6 +52,7 @@
   <option value="Organizational Development">Organizational Development</option>
   <option value="Administrative Services">Administrative Services</option>
   <option value="Security">Security</option>
+  </select><br>
   </select><br>
 
   <label for="dateOfBirth">Date of Birth:</label>

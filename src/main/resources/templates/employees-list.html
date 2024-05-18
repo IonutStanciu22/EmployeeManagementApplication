@@ -18,20 +18,19 @@
     <span></span>
   </label>
 
-  <ul class="menu__box">
-
-    <li><a class="menu__item" th:href="@{/}">Home</a></li>
-    <li><a class="menu__item" th:href="@{/employees}">Employees</a>
-    <li><a class="menu__item" th:href="@{/salaries}">Salaries</a>
-    <li><a class="menu__item" th:href="@{/reports}">Reports</a>
-  </ul>
+    <ul class="menu__box">
+      <li><a class="menu__item" th:href="@{/}">Home</a></li>
+      <li><a class="menu__item" th:href="@{/employees}">Employees</a></li>
+      <li><a class="menu__item" th:href="@{/employees/salaries}">Salaries</a></li>
+      <li><a class="menu__item" th:href="@{/employees/reports}">Reports</a></li>
+    </ul>
 </div>
   <h1>Employee Management System</h1>
 </header>
-
+<div th:if="${noResults}" class="alert alert-warning" th:text="${noResults}"></div>
 <div class="container">
   <!-- Adăugarea în partea de sus a paginii, sub bara de navigație sau header -->
-  <div th:if="${noResults}" class="alert alert-warning" th:text="${noResults}"></div>
+
 
   <div class="actions">
     <!-- Link pentru adăugarea unui nou angajat -->
@@ -66,6 +65,7 @@
       <th>Last Name</th>
       <th>Email</th>
       <th>Department</th>
+      <th>Salary</th>
       <th>Actions</th>
     </tr>
     </thead>
@@ -76,6 +76,7 @@
       <td th:text="${employee.lastName}"></td>
       <td th:text="${employee.email}"></td>
       <td th:text="${employee.department}"></td>
+      <td th:text="${employee.getLastSalary()}"></td> <!-- Modificat pentru a folosi metoda getLastSalary -->
       <td>
         <div class="detail-actions">
         <a th:href="@{/employees/edit/{id}(id=${employee.id})}" class="detail-action-btn">

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Salaries</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/employees-list.css}">
+  <link rel="stylesheet" th:href="@{/css/navbar.css}">
+</head>
+<body>
+<header>
+  <div class="hamburger-menu">
+    <input id="menu__toggle" type="checkbox" />
+    <label class="menu__btn" for="menu__toggle">
+      <span></span>
+    </label>
+
+    <ul class="menu__box">
+      <li><a class="menu__item" th:href="@{/}">Home</a></li>
+      <li><a class="menu__item" th:href="@{/employees}">Employees</a></li>
+      <li><a class="menu__item" th:href="@{/employees/salaries}">Salaries</a></li>
+      <li><a class="menu__item" th:href="@{/employees/reports}">Reports</a></li>
+    </ul>
+  </div>
+  <h1>Employee Management System</h1>
+</header>
+<div class="container">
+  <div class="actions">
+    <!-- Link pentru adăugarea unui nou salariu -->
+    <a th:href="@{/employees/salaries/add}" class="button">
+      <i class="fas fa-plus"></i> Add New Salary
+    </a>
+  </div>
+
+  <table th:if="${not #lists.isEmpty(salaries)}">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Amount</th>
+      <th>Effective Date</th>
+      <th>Employee ID</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="salary : ${salaries}">
+      <td th:text="${salary.id}"></td>
+      <td th:text="${salary.amount}"></td>
+      <td th:text="${#dates.format(salary.effectiveDate, 'dd-MM-yyyy')}"></td>
+      <td th:text="${salary.employee.id}"></td>
+      <td>
+        <div class="detail-actions">
+          <a th:href="@{/employees/salaries/edit/{id}(id=${salary.id})}" class="detail-action-btn">
+            <i class="fas fa-edit"></i>
+          </a>
+          <form th:action="@{/employees/salaries/delete/{id}(id=${salary.id})}" method="post" onsubmit="return confirm('Are you sure you want to delete this salary record?');">
+            <button type="submit" class="detail-action-btn detail-delete-btn">
+              <i class="fas fa-trash"></i>
+            </button>
+          </form>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div th:unless="${not #lists.isEmpty(salaries)}">
+    <p>No salaries found.</p>
+  </div>
+</div>
+</body>
+</html>
