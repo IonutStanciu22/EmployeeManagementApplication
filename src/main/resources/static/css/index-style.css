@@ -2,16 +2,16 @@
 html, body {
     height: 100%;
     margin: 0;
-    overflow: hidden; /* Previne scroll-ul vertical */
+    overflow: hidden;
     font-family: Arial, sans-serif;
 }
 
 
 .content {
-    margin-left: 200px; /* Asigură că conținutul nu se suprapune cu sidebar-ul */
-    width: calc(100% - 200px); /* Ajustează lățimea conținutului */
-    height: 100vh; /* Asigură că conținutul ocupă întreaga înălțime */
-    overflow: hidden; /* Previne scroll-ul vertical */
+    margin-left: 200px;
+    width: calc(100% - 200px);
+    height: 100vh;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -19,9 +19,9 @@ html, body {
 header {
     position: fixed;
     width: 100%;
-    z-index: 1050; /* Asigurați-vă că este mai mare decât alte elemente pe pagina */
-    background: #fff; /* Optional: pentru vizibilitate îmbunătățită */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: pentru un efect subtil de elevație */
+    z-index: 1050;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     top: 0;
 }
 
@@ -33,15 +33,15 @@ header {
 }
 
 .carousel, .carousel-inner, .carousel-item {
-    height: 100%; /* Asigură că caruselul și elementele sale ocupă întreaga înălțime */
-    width: 100%; /* Asigură că caruselul și elementele sale ocupă întreaga lățime */
+    height: 100%;
+    width: 100%;
 }
 
 .carousel-item img {
-    width: 100%; /* Asigură că imaginea ocupă întreaga lățime */
-    height: 100%; /* Asigură că imaginea ocupă întreaga înălțime */
-    object-fit: cover; /* Asigură că imaginile se încadrează perfect */
-    object-position: bottom; /* Centrează imaginea de la partea de jos */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
 }
 
 

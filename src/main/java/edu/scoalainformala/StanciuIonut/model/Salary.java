@@ -29,7 +29,7 @@ public class Salary {
     @Column(name = "effective_date", nullable = false)
     private Date effectiveDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "employee_id", nullable = false)
-    private Employee employee; // Presupunând că ai o clasă Employee legată
+    private Employee employee;
 }

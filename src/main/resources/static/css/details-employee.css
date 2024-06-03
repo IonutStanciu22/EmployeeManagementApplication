@@ -1,39 +1,39 @@
 .detail-container {
-    max-width: 800px; /* Lățimea maximă a containerului pentru o citire confortabilă */
-    margin: 20px auto; /* Centrează containerul pe pagina și adaugă spațiu deasupra și dedesubt */
-    padding: 20px; /* Spațiu în interiorul containerului */
-    background: #ffffff; /* Fundal alb pentru contrast cu textul */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Umbra subtilă pentru a adăuga adâncime */
-    border-radius: 10px; /* Colțuri rotunjite */
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
 /* Stiluri pentru titluri în cadrul detaliilor */
 .detail-title {
-    font-size: 24px; /* Mărimea fontului pentru titluri */
-    color: #333; /* Culoare inchisă pentru ușurința citirii */
-    margin-bottom: 10px; /* Spațiu sub titlu */
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 /* Stiluri pentru paragrafele de detalii */
 .detail-text {
-    font-size: 16px; /* Mărimea fontului pentru textul normal */
-    color: #666; /* Culoare mai deschisă pentru text */
-    line-height: 1.5; /* Înălțimea liniei pentru o citire mai ușoară */
-    margin-bottom: 5px; /* Spațiu între paragrafe */
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 5px;
 }
 
 /* Container pentru butoane */
 .detail-actions {
-    display: flex; /* Setează layout-ul la flex */
-    justify-content: space-between; /* Spațiază butoanele uniform pe orizontală */
-    padding: 10px 0; /* Padding pentru a oferi spațiu în jurul butoanelor */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
 }
 
-/* Stiluri pentru butoanele de acțiune, actualizare pentru flexibilitate */
+/* Stiluri pentru butoanele de acțiune */
 .detail-action-btn {
     text-decoration: none;
     padding: 10px 15px;
-    margin: 0 10px; /* Margine între butoane pentru a asigura spațiu */
+    margin: 0 10px;
     border-radius: 5px;
     font-size: 16px;
     display: inline-flex;
@@ -66,11 +66,11 @@
 }
 header {
     display: flex;
-    background-color: #003366; /* Bleumarin */
+    background-color: #003366;
     color: #ffffff;
     padding: 10px 20px;
-    justify-content: center; /* Centrează elementele pe orizontală */
-    align-items: center; /* Centrează elementele pe verticală */
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -84,10 +84,10 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f9f9f9; /* Gri deschis pentru fundal */
-    color: #4a4a4a; /* Gri închis pentru text */
+    background: #f9f9f9;
+    color: #4a4a4a;
 }
 
 i {
-    margin-right: 5px; /* Adaugă un spațiu între iconiță și text */
+    margin-right: 5px;
 }

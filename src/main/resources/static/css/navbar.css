@@ -73,11 +73,11 @@
 
 header {
     display: flex;
-    background-color: #003366; /* Bleumarin */
+    background-color: #003366;
     color: #ffffff;
     padding: 10px 20px;
-    justify-content: center; /* Centrează elementele pe orizontală */
-    align-items: center; /* Centrează elementele pe verticală */
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {

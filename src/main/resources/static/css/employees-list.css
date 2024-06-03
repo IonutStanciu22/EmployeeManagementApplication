@@ -2,17 +2,17 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: #f9f9f9; /* Gri deschis pentru fundal */
-    color: #4a4a4a; /* Gri închis pentru text */
+    background: #f9f9f9;
+    color: #4a4a4a;
 }
 
 header {
-    background-color: #003366; /* Bleumarin */
+    background-color: #003366;
     color: #ffffff;
     padding: 10px 20px;
     display: flex;
-    justify-content: center; /* Centrează elementele pe orizontală */
-    align-items: center; /* Centrează elementele pe verticală */
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -45,7 +45,7 @@ th, td {
 }
 
 th {
-    background-color: #007acc; /* Albastru cerulean */
+    background-color: #007acc;
     color: #fff;
 }
 
@@ -57,33 +57,33 @@ tr:nth-child(even) {
     display: inline-block;
     padding: 5px 10px;
     color: white;
-    background-color: #007acc; /* Albastru cerulean */
+    background-color: #007acc;
     text-decoration: none;
     border-radius: 5px;
     margin-right: 5px;
 }
 
 i {
-    margin-right: 5px; /* Adaugă un spațiu între iconiță și text */
+    margin-right: 5px;
 }
 
 
 /* Container pentru butoane */
 .detail-actions {
     display: flex;
-    justify-content: flex-start; /* Aliniază butoanele la începutul containerului */
+    justify-content: flex-start;
     align-items: center;
-    gap: 10px; /* Menține un spațiu de 10px între butoane */
+    gap: 10px;
 }
 
 /* Stiluri pentru butoanele de acțiune */
 .detail-action-btn {
     text-decoration: none;
-    padding: 10px; /* Reducem padding-ul orizontal pentru a face butoanele mai înguste */
-    border-radius: 6px; /* Colțuri ușor rotunjite */
+    padding: 10px;
+    border-radius: 6px;
     display: flex;
-    width: 30px; /* Setăm o lățime de 20px */
-    height: 30px; /* Setăm o înălțime de 20px pentru a crea butoane pătrate */
+    width: 30px;
+    height: 30px;
     align-items: center;
     justify-content: center;
     color: #fff;
@@ -93,23 +93,22 @@ i {
 }
 
 .detail-action-btn:hover {
-    background-color: #004494; /* Schimbă culoarea la hover */
-}
+    background-color: #004494;}
 
 .detail-delete-btn {
-    background-color: #dc3545; /* Fundal specific pentru butonul de ștergere */
+    background-color: #dc3545;
 }
 
 .detail-delete-btn:hover {
-    background-color: #c82333; /* Schimbă culoarea la hover */
+    background-color: #c82333;
 }
 
 .detail-back-btn {
-    background-color: #6c757d; /* Fundal specific pentru butonul de revenire */
+    background-color: #6c757d;
 }
 
 .detail-back-btn:hover {
-    background-color: #5a6268; /* Schimbă culoarea la hover */
+    background-color: #5a6268;
 }
 
 .actions {
@@ -126,9 +125,11 @@ i {
 }
 
 .add-employee-form {
-    margin-right: auto;  /* Împinge toate celelalte elemente spre dreapta */
+    margin-right: auto;
 }
 
 .search-by-id-form, .search-by-form {
     margin-left: 20px;
 }
+
+

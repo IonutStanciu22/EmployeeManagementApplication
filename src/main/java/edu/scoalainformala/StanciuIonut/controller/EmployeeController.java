@@ -1,7 +1,6 @@
 package edu.scoalainformala.StanciuIonut.controller;
 
 import edu.scoalainformala.StanciuIonut.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +14,11 @@ import java.util.List;
 @RequestMapping("/employees")
 public class EmployeeController {
 
-    @Autowired
-    private EmployeeService employeeService;
+    private final EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
 
     @GetMapping("/")
     public String homepage() {
@@ -78,7 +80,7 @@ public class EmployeeController {
             model.addAttribute("employee", employee);
             return "details-employee";
         } catch (IllegalArgumentException e) {
-            redirectAttributes.addFlashAttribute("error", e.getMessage());
+            redirectAttributes.addFlashAttribute("error", "Employee ID not found.");
             return "redirect:/employees";
         }
     }
