@@ -9,7 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
+@Entity(name = "salaries")
 @Table(name = "salaries")
 @Getter
 @Setter

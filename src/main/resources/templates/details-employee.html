@@ -19,7 +19,6 @@
             <li><a class="menu__item" th:href="@{/}">Home</a></li>
             <li><a class="menu__item" th:href="@{/employees}">Employees</a></li>
             <li><a class="menu__item" th:href="@{/employees/salaries}">Salaries</a></li>
-            <li><a class="menu__item" th:href="@{/employees/reports}">Reports</a></li>
         </ul>
     </div>
     <h1>Employee Management System</h1>
@@ -37,7 +36,6 @@
     <p class="detail-text"><strong>Date of Birth</strong>: <span th:text="${employee.dateOfBirth}"></span></p>
     <p class="detail-text"><strong>Age</strong>: <span th:text="${employee.calculateAge()}"></span></p>
     <p class="detail-text"><strong>Salary:</strong> <span th:text="${employee.getLastSalary()}"></span></p>
-    <!-- Alte informații despre angajat pot fi adăugate aici -->
     <div class="detail-actions">
         <a th:href="@{/employees/edit/{id}(id=${employee.id})}" class="detail-action-btn">
             <i class="fas fa-edit"></i> Edit

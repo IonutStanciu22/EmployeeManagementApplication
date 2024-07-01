@@ -21,7 +21,6 @@
             <li><a class="menu__item" th:href="@{/}">Home</a></li>
             <li><a class="menu__item" th:href="@{/employees}">Employees</a></li>
             <li><a class="menu__item" th:href="@{/employees/salaries}">Salaries</a></li>
-            <li><a class="menu__item" th:href="@{/employees/reports}">Reports</a></li>
         </ul>
     </div>
     <h1>Employee Management System</h1>
@@ -44,14 +43,14 @@
             </div>
         </div>
 
-        <!-- Bootstrap JS and dependencies -->
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script>
             $(document).ready(function () {
                 $('.carousel').carousel({
-                    interval: 2000 // Intervalul de timp în milisecunde (aici este setat la 5000ms = 5 secunde)
+                    interval: 2000
                 });
             });
         </script>

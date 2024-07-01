@@ -16,7 +16,7 @@ import java.util.Comparator;
 import java.util.Set;
 
 
-@Entity
+@Entity(name = "employees")
 @Table(name = "employees")
 @Getter
 @Setter
